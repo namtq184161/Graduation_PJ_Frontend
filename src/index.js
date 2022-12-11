@@ -1,16 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { legacy_createStore as createStore } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
-import { composeWithDevTools } from '@redux-devtools/extension';
 
 import './index.css';
 import './styles/icons/icons.css';
 import App from './App';
 import rootReducer from './reducers';
 
-const store = createStore(rootReducer, composeWithDevTools());
+const store = configureStore({ reducer: rootReducer });
 
 ReactDOM.render(
   <Provider store={store}>
